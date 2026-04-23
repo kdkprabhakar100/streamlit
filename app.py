@@ -4,7 +4,7 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import pandas as pd
 import streamlit as st
-# from sklearn.compose import ColumnTransformer
+from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, accuracy_score, f1_score
