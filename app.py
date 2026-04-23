@@ -21,6 +21,10 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+
     .main {
         background-color: #0e1117;
     }
@@ -52,14 +56,6 @@ st.markdown("""
         margin-bottom: 0px;
     }
 
-    .section-card {
-        background-color: #111827;
-        padding: 18px;
-        border-radius: 16px;
-        border: 1px solid #253046;
-        margin-bottom: 15px;
-    }
-
     .small-note {
         color: #cbd5e1;
         font-size: 15px;
@@ -80,27 +76,27 @@ st.markdown("""
         border: 1px solid #253046;
         background-color: #111827;
     }
-
-    .footer-box {
-        background-color: #111827;
-        padding: 22px;
-        border-radius: 16px;
-        border: 1px solid #253046;
-        margin-top: 20px;
-    }
 </style>
 """, unsafe_allow_html=True)
 
-
 st.markdown("""
 <div class="hero-box">
-    <div class="hero-title">🌫️ Air Quality Intelligence System</div>
+    <div class="hero-title">🌫️ Intelligent Air Quality Forecasting System</div>
     <div class="hero-subtitle">
         Predict PM2.5 concentration and analyze pollution risk using machine learning
     </div>
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("**Developed by: Manushi Paudel**")
+
+st.markdown("""
+### 📘 Project Overview
+
+This system predicts PM2.5 air pollution levels and classifies pollution risk
+based on environmental conditions such as temperature, pressure, dew point,
+wind speed, rain, and snow.
+""")
 
 @st.cache_data
 def load_data(file):
@@ -362,6 +358,12 @@ with tab3:
         for k, v in models["clf_metrics"].items():
             st.metric(k, f"{v:.3f}")
 
+    st.markdown("### 📊 Model Insight")
+    st.write("""
+    Random Forest performs better for this kind of problem because it can capture
+    more complex nonlinear relationships between environmental variables and pollution levels.
+    """)
+
     st.markdown("### Features Used")
     st.write("**Numerical:**", models["features_num"])
     st.write("**Categorical:**", models["features_cat"])
@@ -491,11 +493,20 @@ with tab5:
     st.subheader("🌍 Real-World Impact")
 
     st.markdown("""
-    - Helps monitor air pollution trends  
-    - Supports public health risk awareness  
-    - Can be extended into real-time smart city systems  
-    - Useful for environmental monitoring and forecasting  
-    """)
+### 🌍 Why This Matters
+
+Air pollution is a major global health risk. This system helps:
+- detect dangerous pollution levels early
+- support environmental monitoring
+- improve public awareness
+""")
+
+    st.markdown("""
+- Helps monitor air pollution trends  
+- Supports public health risk awareness  
+- Can be extended into real-time smart city systems  
+- Useful for environmental monitoring and forecasting  
+""")
 
     st.markdown("### Project Summary")
     st.write("""
@@ -508,7 +519,5 @@ with tab5:
     st.write("""
     - Add advanced models like XGBoost or LSTM  
     - Connect live API-based weather data  
-    - Deploy online for public use  
     - Add more pollutants and health-based alerts  
     """)
-
