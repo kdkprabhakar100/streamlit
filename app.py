@@ -247,13 +247,8 @@ def train_models(df):
     }
 
 
-uploaded = st.file_uploader("Upload your Beijing PM2.5 CSV file", type=["csv"])
-
-if uploaded is None:
-    st.info("Upload the dataset to start the dashboard.")
-    st.stop()
-
-df = load_data(uploaded)
+DATA_PATH = "PRSA_data_2010.1.1-2014.12.31.csv"
+df = load_data(DATA_PATH)
 models = train_models(df)
 
 if "risk" not in df.columns:
